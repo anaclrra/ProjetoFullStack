@@ -1,4 +1,4 @@
-const connection = require('./connection')
+const connection = require('./connection');
 
 const getAll = () => {
     return new Promise((resolve, reject) => {
@@ -79,4 +79,4 @@ module.exports = {
     creatUser,
     deleteUser,
     updateUser
-}
+};

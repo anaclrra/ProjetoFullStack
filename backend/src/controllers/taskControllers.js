@@ -7,7 +7,7 @@ const getAll = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
-    
+
 };
 
 const getId = async (req, res) => {
@@ -18,7 +18,7 @@ const getId = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
-    
+
 };
 
 const creatTask = async (req, res) => {
@@ -28,7 +28,7 @@ const creatTask = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
-}
+};
 
 const deleteTask = async (req, res) => {
 
@@ -41,10 +41,10 @@ const deleteTask = async (req, res) => {
     }
 };
 
-const updateTask = async (req, res) => { 
+const updateTask = async (req, res) => {
     const { id } = req.params;
     try {
-        await taskModel.updateTask(id,req.body);
+        await taskModel.updateTask(id, req.body);
         return res.status(204).json();
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });

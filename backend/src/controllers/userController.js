@@ -28,7 +28,7 @@ const creatUser = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
-}
+};
 
 const deleteUser = async (req, res) => {
 
