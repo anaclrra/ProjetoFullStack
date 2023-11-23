@@ -9,7 +9,9 @@ const login = async (req, res) => {
         const user = logged[0];
         const payload = {
             userId: user.id,
+
         };
+
         const token = tokenModel.gerarToken(payload);
         return res.status(200).json({ acessToken: token });
 
