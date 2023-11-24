@@ -26,6 +26,19 @@ const getId = (id) => {
   });
 };
 
+const getTaskByUser = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query('SELECT * FROM tasks WHERE userId = ?', [id], (error, results) => {
+      if (error) {
+        console.error('Erro na consulta SQL:', error);
+        reject(error);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+};
+
 
 const creatTask = (task) => {
   const { title, descricao, date, user } = task;
@@ -77,6 +90,7 @@ const updateTask = async (id, task) => {
 module.exports = {
   getAll,
   getId,
+  getTaskByUser,
   creatTask,
   deleteTask,
   updateTask
