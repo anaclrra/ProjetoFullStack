@@ -21,6 +21,16 @@ const getId = async (req, res) => {
 
 };
 
+const getTaskByUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const taskUser = await taskModel.getTaskByUser(id);
+        return res.status(200).json(taskUser);
+    } catch (error) {
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
 const creatTask = async (req, res) => {
     try {
         const createdtask = await taskModel.creatTask(req.body);
@@ -54,6 +64,7 @@ const updateTask = async (req, res) => {
 module.exports = {
     getAll,
     getId,
+    getTaskByUser,
     creatTask,
     deleteTask,
     updateTask
