@@ -13,7 +13,7 @@ const login = async (req, res) => {
         };
 
         const token = tokenModel.gerarToken(payload);
-        return res.status(200).json({ acessToken: token });
+        return res.status(200).json({ acessToken: token, id: payload.userId });
 
     } catch (error) {
         console.error('Erro no login:', error);
