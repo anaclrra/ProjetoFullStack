@@ -25,7 +25,7 @@ const Login = () => {
                     const id = response.data.id;
                     localStorage.setItem("token", token);
                     localStorage.setItem('id', id);
-                    console.log("entrou");
+
 
                     navigate(`/tasks/user/${id}`);
                 } else {
@@ -69,6 +69,7 @@ const Login = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary">Entrar</button>
+                <a href='/users'>Registrar</a>
             </form>
 
             {error && <p className="error">{error}</p>}
