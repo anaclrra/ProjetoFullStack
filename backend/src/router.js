@@ -12,7 +12,7 @@ router.get('/users', middleware.verificarToken, userController.getAll);
 
 router.get('/tasks/:id', middleware.verificarToken, taskController.getId);
 router.get('/users/:id', middleware.verificarToken, userController.getId);
-router.get('/taskss'/*user/:id'*/, middleware.verificarToken, taskController.getTaskByUser);
+router.get('/tasks/user', middleware.verificarToken, taskController.getTaskByUser);
 
 
 router.post('/tasks', middleware.validateBody, taskController.creatTask);
