@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
+import Navbar from './components/NavBar';
 import Register from './components/Register';
 
 
@@ -8,17 +9,27 @@ import Register from './components/Register';
 
 function App() {
 
-  const [accessToken, setAccessToken] = useState(null);
+  const [accessToken, setAccessToken] = useState(localStorage.getItem('token'));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  const handleLogin = (token) => {
+    setAccessToken(token);
+    setIsLoggedIn(true);
+    navigate('/tasks/user');
+  };
+
   return (
-    <Routes>
-      <Route
-        path='/login'
-        element={<Login setToken={setAccessToken} accessToken={accessToken} navigate={navigate} />}
-      />
-      <Route path="/users" element={<Register />} />
-    </Routes>
+    <>
+      <Navbar isLoggedIn={isLoggedIn} />
+      <Routes>
+        <Route
+          path='/login'
+          element={<Login onLogin={handleLogin} />}
+        />
+        <Route path="/users" element={<Register token={accessToken} />} />
+      </Routes>
+    </>
   );
 }
 
