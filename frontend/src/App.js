@@ -14,7 +14,7 @@ function App() {
   return (
     <Routes>
       <Route
-        path='/'
+        path='/login'
         element={<Login setToken={setAccessToken} accessToken={accessToken} navigate={navigate} />}
       />
       <Route path="/users" element={<Register />} />
