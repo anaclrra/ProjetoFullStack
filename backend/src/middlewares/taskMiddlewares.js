@@ -48,8 +48,8 @@ function verificarToken(req, res, next) {
         return res.status(403).json({ mensagemErro: 'Token inválido. Faça login novamente.' });
       }
       else {
-        const user = decoded.userId;
-        console.log(`Usuário ${user} autenticado com sucesso!`);
+        req.userId = decoded.userId;
+        console.log(`Usuário ${req.userId} autenticado com sucesso!`);
         next();
       }
     });

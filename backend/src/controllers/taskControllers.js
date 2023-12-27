@@ -22,7 +22,8 @@ const getId = async (req, res) => {
 };
 
 const getTaskByUser = async (req, res) => {
-    const { id } = req.params;
+    const id = req.userId;
+    //const { id } = req.params;
     try {
         const taskUser = await taskModel.getTaskByUser(id);
         return res.status(200).json(taskUser);
