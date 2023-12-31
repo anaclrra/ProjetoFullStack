@@ -39,7 +39,6 @@ const getTaskByUser = (id) => {
   });
 };
 
-
 const creatTask = (task) => {
   const { title, descricao, date, user } = task;
 

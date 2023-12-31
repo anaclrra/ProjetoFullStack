@@ -37,7 +37,7 @@ const validateBodyUser = (req, res, next) => {
   next();
 };
 
-function verificarToken(req, res, next) {
+ function verificarToken(req, res, next) {
   const token = req.headers['x-access-token'];
   if (!token) {
     return res.status(401).json({ mensagemErro: 'Usuário não autenticado! Faça login antes de chamar este recurso.' });
@@ -45,7 +45,7 @@ function verificarToken(req, res, next) {
   else {
     jwt.verify(token, secret, (error, decoded) => {
       if (error) {
-        return res.status(403).json({ mensagemErro: 'Token inválido. Faça login novamente.' });
+        return res.status(403).json({ mensagemErro: 'Token inválido. Faça login novamente.' , error, secret});
       }
       else {
         req.userId = decoded.userId;

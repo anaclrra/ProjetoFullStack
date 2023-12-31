@@ -4,7 +4,7 @@ const secret = process.env.JWT_SECRET;
 
 
 function gerarToken(payload) {
-    return jwt.sign(payload, secret, { expiresIn: 20 });
+    return jwt.sign(payload, secret, { expiresIn: 600 });
 }
 
 const login = (user) => {

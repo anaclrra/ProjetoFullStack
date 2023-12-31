@@ -10,9 +10,12 @@ const router = express.Router();
 router.get('/tasks', middleware.verificarToken, taskController.getAll);
 router.get('/users', middleware.verificarToken, userController.getAll);
 
-router.get('/tasks/:id', middleware.verificarToken, taskController.getId);
-router.get('/users/:id', middleware.verificarToken, userController.getId);
 router.get('/tasks/user', middleware.verificarToken, taskController.getTaskByUser);
+
+router.get('/tasks/:id', middleware.verificarToken, taskController.getId);
+
+
+router.get('/users/:id', middleware.verificarToken, userController.getId);
 
 
 router.post('/tasks', middleware.validateBody, taskController.creatTask);

@@ -1,5 +1,6 @@
 const taskModel = require('../models/taskModel');
 
+
 const getAll = async (req, res) => {
     try {
         const tasks = await taskModel.getAll();
@@ -22,15 +23,16 @@ const getId = async (req, res) => {
 };
 
 const getTaskByUser = async (req, res) => {
-    const id = req.userId;
-    //const { id } = req.params;
     try {
+    const id = req.userId;
+
         const taskUser = await taskModel.getTaskByUser(id);
         return res.status(200).json(taskUser);
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 const creatTask = async (req, res) => {
     try {
