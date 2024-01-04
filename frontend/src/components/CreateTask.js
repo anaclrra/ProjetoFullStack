@@ -1,6 +1,7 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CreateTask = ({ userId, onTaskCreated }) => {
     const [formData, setFormData] = useState({
@@ -76,6 +77,7 @@ const CreateTask = ({ userId, onTaskCreated }) => {
                         name="title"
                         value={formData.title}
                         onChange={handleInputChange}
+                        required
                         className="mt-1 block w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-purple-500 sm:text-sm"
                     />
                 </div>
@@ -86,6 +88,7 @@ const CreateTask = ({ userId, onTaskCreated }) => {
                         name="descricao"
                         value={formData.descricao}
                         onChange={handleInputChange}
+                        required
                         className="mt-1 block w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-purple-500 sm:text-sm"
                     />
                 </div>
@@ -98,6 +101,9 @@ const CreateTask = ({ userId, onTaskCreated }) => {
                     <FontAwesomeIcon icon={faPlus} className="mr-2" />
                     Adicionar Tarefa
                 </button>
+                <Link to="/login" className="flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-600 focus:outline-none focus:border-purple-700 focus:ring-purple active:bg-purple-700 transition duration-150 ease-in-out">
+                        LogOut
+                    </Link>
             </form>
         </div>
     );

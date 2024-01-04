@@ -93,7 +93,7 @@ const Tasks = ({ id, token }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-black-100 px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-white px-4">
             <div className="flex flex-wrap justify-between items-start w-full max-w-6xl mx-auto">
                 <div className="w-full lg:w-1/3 px-2 mb-8">
                     <CreateTask userId={id} onTaskCreated={handleTaskCreated} />

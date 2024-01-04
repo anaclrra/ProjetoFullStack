@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -16,6 +18,8 @@ const Register = () => {
                 email,
                 password,
             });
+            
+            toast.success('Registrado com sucesso!')
         }
         catch (error) {
             console.log(error.response.data);
@@ -36,6 +40,7 @@ const Register = () => {
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300"
                             placeholder="Username"
                             value={name}
+                            required
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
@@ -47,6 +52,7 @@ const Register = () => {
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300"
                             placeholder="Seu email"
                             value={email}
+                            required
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -58,6 +64,7 @@ const Register = () => {
                             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300"
                             placeholder="Password"
                             value={password}
+                            required
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
@@ -66,6 +73,7 @@ const Register = () => {
                     <Link to="/login" className="text-purple-500 hover:text-purple-600 text-sm font-medium block text-center mt-4">Login</Link>
                 </form>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
